@@ -38,6 +38,7 @@ public class GetUsername extends HttpServlet {
 		System.out.println("Read");
 		
 		System.out.println("test: " + t);
+		System.out.println("name: " + name);
 		
 		request.setAttribute("name", name);
 		
