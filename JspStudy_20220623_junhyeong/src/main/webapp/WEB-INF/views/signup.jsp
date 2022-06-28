@@ -9,15 +9,17 @@
 <body>
 	<div id = "container">
 		<h1>회원가입</h1>
-		<form action="">
+		<!-- action -> 요청 메시지를 입력하는 곳 -->
+		<!-- submit 속성을 누르면, signup에 post요청을 한다. -->
+		<form action="/signup" method="post">
 			<table>
 				<tr>
 					<th>이름</th>
-					<td><input type = "text" name = "name"></td>
+					<td><input type= "text" name= "name"></td>
 				</tr>
 				<tr>
 					<th>이메일</th>
-					<td><input type = "email" name = "email"></td>
+					<td><input type= "email" name= "email"></td>
 				</tr>
 				<tr>
 					<th>사용자 이름</th>
@@ -25,7 +27,7 @@
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td><input type = "password" name = "password"></td>
+					<td><input type= "password" name= "password"></td>
 				</tr>
 			</table>
 			<button type= "submit">가입하기</button>
