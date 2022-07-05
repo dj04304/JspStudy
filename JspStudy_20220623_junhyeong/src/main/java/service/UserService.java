@@ -1,5 +1,6 @@
 package service;
 
+import domain.entity.User;
 import web.dto.SignupReqDto;
 
 //CRUD 는 꼭 가져야 한다.
@@ -9,5 +10,8 @@ public interface UserService {
 	public void getUser()  throws Exception;
 	public boolean updateUser()  throws Exception;
 	public boolean deleteUser()  throws Exception;
+	
+	//로그인
+	public User loadUser(String username, String password) throws Exception;
 	
 }

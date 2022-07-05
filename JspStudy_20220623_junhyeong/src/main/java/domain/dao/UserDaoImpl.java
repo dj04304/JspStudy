@@ -80,10 +80,10 @@ public class UserDaoImpl implements UserDao{
 				+ "WHERE\r\n"
 				+ "	um.username = ?";
 		
-		con = pool.getConnection();
+		con = pool.getConnection(); //db와 연결
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, username);
+			pstmt.setString(1, username); //username만 필요하기 때문에 1, username을 쓴다.
 			rs = pstmt.executeQuery(); //select는 무조건 rs에 executeQuery 를 담아줘야한다. create update delete는 executeUpdate(return int)이다.
 			
 			if(rs.next()) { //iterator에서 hasnext와 비슷한 느낌으로, 커서를 옮겨준다

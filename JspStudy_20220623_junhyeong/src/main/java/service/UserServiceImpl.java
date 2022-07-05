@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public boolean checkUsername(String username) throws Exception {
-		return userDao.findUserByUsername(username) != null; //checkUsername 즉, 유저가 있다는 것이기 때문에 true = user가 존재한다는 것이다.
+		return userDao.findUserByUsername(username) != null; //null 또는 user의 정보가 findUserByUsername의 검사를 통해 날아온다
 	}
 	
 	@Override
@@ -38,4 +38,14 @@ public class UserServiceImpl implements UserService{
 		return false;
 	}
 
+	@Override
+	public User loadUser(String username, String password) throws Exception {
+		User user = userDao.findUserByUsername(username);
+		if(user == null) {
+			return null;
+		}else {
+			return user.getPassword().equals(password) ? user : null; //password가 내가보낸 password랑 일치할 경우 user return 
+		}
+	}
+	
 }

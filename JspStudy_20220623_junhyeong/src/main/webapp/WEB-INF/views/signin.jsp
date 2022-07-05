@@ -4,40 +4,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>로그인</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
 	<div id = "container">
-		<h1>회원가입</h1>
+		<h1>로그인</h1>
 		<!-- action -> 요청 메시지를 입력하는 곳 -->
-		<!-- submit 속성을 누르면, signup에 post요청을 한다. -->
-		<form action="/signup" method="post">
+		<!-- 로그인은 post요청이다. 이는 url(주소창)에 파라미터값이 다 뜨기 때문에 post요청을 해줘야한다. 즉, 보안이 필요한 정보는 post요청이라고 생각하면 된다.-->
+		<form action="/signin" method="post">
 			<table>
-				<tr>
-					<th>이름</th>
-					<td><input type= "text" name= "name"></td>
-				</tr>
-				<tr>
-					<th>이메일</th>
-					<td><input type= "email" name= "email"></td>
-				</tr>
 				<tr>
 					<th>사용자 이름</th>
 					<td><input type = "text" class ="username-input" name = "username"></td>
-				</tr>
-				<tr class = "username-check-msg">
-					
 				</tr>
 				<tr>
 					<th>비밀번호</th>
 					<td><input type= "password" name= "password"></td>
 				</tr>
 			</table>
-			<button type= "button" class ="submit-button">가입하기</button>
-			<button type= "reset">재작성</button>
+			<button type= "button" class ="submit-button">로그인</button>
+			<button type= "button" class="signup-button">회원가입</button>
 		</form>
 	</div>
-	<script type="text/javascript" src="/static/js/signup.js"></script>
+	<script type="text/javascript" src="/static/js/signin.js"></script>
 </body>
 </html>

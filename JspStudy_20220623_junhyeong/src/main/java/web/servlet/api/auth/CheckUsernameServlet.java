@@ -21,9 +21,9 @@ public class CheckUsernameServlet extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username"); //파라미터를 username으로 받는다.
+		String username = request.getParameter("username"); //파라미터를 username으로 받는다. 아이디 중복체크이기 때문에 username만 필요하다.
 		
-		response.setContentType("text/plain;charset=UTF-8");
+		response.setContentType("text/plain;charset=UTF-8"); //필터역할, 응답을 받을 때, 한글텍스트가 깨지지 않기 위함
 		
 		try {
 			response.getWriter().print(userService.checkUsername(username));
