@@ -45,5 +45,11 @@
 		    <artifactId>mariadb-java-client</artifactId>
 		    <version>2.7.6</version>
 		</dependency>
+		<!-- gson Json기능을 구글에서 쓰게끔 해주는 역할 -->
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.9.0</version>
+		</dependency>
   </dependencies>
 </project>

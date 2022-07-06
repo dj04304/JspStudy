@@ -2,12 +2,14 @@ package web.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import domain.entity.User;
 import service.UserService;
@@ -45,6 +47,21 @@ public class SigninServlet extends HttpServlet {
 			if(user == null) {
 				out.print(false);
 			}else {
+				HttpSession session = request.getSession();
+				System.out.println("session id: " + session.getId());
+				
+				System.out.println("session CreationTime: " 
+							+ (new SimpleDateFormat("HH:mm:ss")).format(session.getCreationTime()));
+				
+				System.out.println("session LastAccessedTime: " 
+							+ (new SimpleDateFormat("HH:mm:ss")).format(session.getLastAccessedTime())); //로그인 유지시간을 getLastAccessedTime으로 계산한다.
+				
+				//세션의 만료시간 설정 60*10 은 10분
+				//session.setMaxInactiveInterval(30); //기본적으로 30분이다.(초단위) 세션에 값이 들어온다고 해서 매번 초기화되는것이 아니다.
+				
+				//세션에 값 저장하는 방법
+				session.setAttribute("principal", user); //getAttribute 할 때, principal(key값)을 주면 user값을 가져온다.
+				
 				out.print(true);
 			}
 		}
