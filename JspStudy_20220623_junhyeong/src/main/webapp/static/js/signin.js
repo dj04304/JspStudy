@@ -1,6 +1,7 @@
 const inputItems = document.querySelectorAll("table input");
 const submitButton = document.querySelector(".submit-button");
 const signupButton = document.querySelector(".signup-button");
+const maintainFlag = document.querySelector("#maintain-flag"); //로그인을 시도했을 때, 체크박스의 값이 들어있는지 아닌지 중요
 
 signupButton.onclick = () => {
 	location.href = "/signup"; //회원가입으로 안내해줌
@@ -26,6 +27,7 @@ function submit(){
 		data: {
 			username: inputItems[0].value,
 			password: inputItems[1].value,
+			maintain: maintainFlag.checked 
 		},
 		dataType: "text",
 		success: (response) => {

@@ -12,6 +12,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 
+import config.ServletContextConfig;
+
 //모든 요청에 적용하라 -> /*
 @WebFilter("/*")
 public class CharacterEncodingFilter extends HttpFilter implements Filter {
@@ -39,7 +41,7 @@ public class CharacterEncodingFilter extends HttpFilter implements Filter {
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {
-		
+		ServletContextConfig.getInstance();
 	}
 
 }
